@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --cpus-per-task=10
+#SBATCH --mem=10G
+#SBATCH --partition=COMPUTE
+
+module load stringtie
+
+for i in Pa07 Pa07StxHb Pa09 Pa09StxHb Pa10 Pa10StxHb Pa59 Pa59StxHb Pa60 Pa60StxHb Pa63 Pa63StxHb Pa64 Pa64StxHb Pa65 Pa65StxHb Pa03 Pa03StxHb Pa04 Pa04StxHb Pa05 Pa05StxHb Pa11 Pa11StxHb Pa57 Pa57StxHb Pa58 Pa58StxHb;
+do echo $i;
+srun  stringtie -o "${i}".gtf  -e -G Pan_040_primary_maker-sorted.gff3 /eep/projet_collab/phillyrea_annotation/expression/aln/Pan_040/"${i}".sorted.bam;
+done
