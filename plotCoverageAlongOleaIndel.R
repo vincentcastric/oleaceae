@@ -1,3 +1,5 @@
+#Creat plot of coverage of short reads from 8 cultivars along the indel in Olea, with annotation of genes
+
 library(Gviz)
 
 picual = read.table('data/GWHAOPM00000018_picual.cov', h=F, sep="\t")
