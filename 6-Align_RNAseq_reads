@@ -1,0 +1,18 @@
+#!/bin/bash
+
+module load hisat2/2.2.1
+module load samtools/1.16.1
+
+cpu=40
+ref="Pan_040"
+ind="Pa01 Pa02 Pa03 Pa03StxHb Pa04 Pa04StxHb Pa05 Pa05StxHb Pa06 Pa07 Pa07StxHb Pa08 Pa09 Pa09StxHb Pa10 Pa10StxHb Pa11 Pa11StxHb Pa12 Pa25 Pa26 Pa27 Pa28 Pa29 Pa30 Pa31 Pa32 Pa33 Pa34 Pa35 Pa36 Pa49 Pa50 Pa51 Pa52 Pa53 Pa54 Pa55 Pa56 Pa57 Pa57StxHb Pa58 Pa58StxHb Pa59 Pa59StxHb Pa60 Pa60StxHb Pa61 Pa62 Pa63 Pa63StxHb Pa64 Pa64StxHb Pa65 Pa65StxHb Pa70StxHb Pa71StxHb Pa72StxHb Pa73StxHb Pa74StxHb Pa75StxHb Pa76StxHb Pa77StxHb Pa78StxHb Pa79StxHb Pa80StxHb Pa81StxHb Pa82StxHb Pa83StxHb Pa84StxHb"
+
+
+hisat2-build Pan_040.fasta $ref
+
+for i in $ind
+do
+        hisat2 -x ${ref} -1 ${i}.D_1.fastq.bz2 -2 ${i}.D_2.fastq.bz2 -p ${cpu} | samtools view -b -S -F 0x4 - > ${i}.bam && samtools sort ${i}.bam -@ ${cpu} -o ${i}.sorted.bam
+done
+~                                                                                                                                                                                                                                             
+~                                            
