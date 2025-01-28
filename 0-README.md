@@ -14,3 +14,5 @@ Affiliations:
 5 UMR DIAPC - Diversité et adaptation des plantes cultivées - Montpellier, France
 * Corresponding author : pierre.saumitou-laprade@univ-lille.fr
 
+Published in Current Biology 2024;34(9):1967-1976.e6
+doi: 10.1016/j.cub.2024.03.047
